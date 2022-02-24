@@ -109,7 +109,7 @@ dance_process = multiprocessing.Process(target=dance, kwargs={'num':3}) #传递�
 sing_process.start()
 dance_process.start()
 
-# 多进程读取文件
+# ----------------多进程读取文件--------------------
 def copy_file(file_name, source_dir, dest_dir):
     '''
     source_path: 源文件路径
@@ -134,7 +134,7 @@ for file_name in file_list:
     sub_process = multiprocessing.Process(target=copy_file, args=(file_name, source_dir, dest_dir))
     sub_process.start()
     
-# 进程池 pool ：把所有要运行的东西放到池子里，python自己解决分配和运算问题。
+# ----------------------进程池 pool ：把所有要运行的东西放到池子里，python自己解决分配和运算问题。---------------------------
 # 相当于使用pool可以正常使用return,有返回值
 # 在jupyter运行以下代码，运行超时。。
 import multiprocessing as mp
@@ -151,7 +151,7 @@ lst = [1, 2, 3, 4, 5]
 multicore(lst)
 
 import multiprocessing as mp
-#和多线程一样，多进程也需要使用lock来保证同一变量的处理顺序。
+#---------------------和多线程一样，多进程也需要使用lock来保证同一变量的处理顺序。------------------
 def job(num):
     global v, lock
     lock.acquire()
