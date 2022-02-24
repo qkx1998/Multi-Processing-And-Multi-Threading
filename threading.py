@@ -59,7 +59,7 @@ dance_thread = threading.Thread(target=dance, kwargs={'num':3})
 sing_thread.start()
 dance_thread.start()
 
-# 多线程读取文件
+# -------------多线程读取文件-----------------
 def copy_file(file_name, source_dir, dest_dir):
     '''
     source_path: 源文件路径
@@ -96,7 +96,7 @@ def func():
 t1_thread = threading.Thread(target=func, name='T1')
 t1_thread.start()
 '''
-使用join命令目的：多线程是同时进行的线程任务。如果想等所有线程结束再开始新的任务，那么可以使用.join()来作为分隔。
+------------------使用join命令目的：多线程是同时进行的线程任务。如果想等所有线程结束再开始新的任务，那么可以使用.join()来作为分隔。--------------------------
 为了all_done在最后输出。
 要不然会先输出all_done，再输出T1 finish
 ！！！！ 注意，多进程程中也有join命令。使用方式和多线程中的相同。
@@ -107,7 +107,7 @@ print('all done')
 
 from queue import Queue
 '''
-因为使用多线程时是没有return功能的，因此使用queue来收集数据
+----------------------因为使用多线程时是没有return功能的，因此使用queue来收集数据--------------------------
 '''
 def func(l, q):
     for i in range(len(l)):
@@ -140,7 +140,7 @@ data = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 2, 4]]
 multi_threading(data)
 
 
-# 使用lock锁来规避同一个变量在多个线程中由于运算的无序性带来的影响
+# ----------------------使用lock锁来规避同一个变量在多个线程中由于运算的无序性带来的影响--------------------------
 '''
 以下的程序通过lock.acquire()和lock.release()的配合，对于A会先执行job1中的运算，再执行job2中的运算。
 '''
